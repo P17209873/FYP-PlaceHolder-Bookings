@@ -14,7 +14,7 @@
   * Move the `private` and `vendor` directories, and `composer.phar`, `composer.json`, and `composer.lock` files to the 
   parent directory of the web server Document Root (for example, `/var/www` on an Ubuntu installation)
   * Run the CreateDatabase.sql script to create the application database
-  * Run `./composer.phar update` to ensure application dependencies are up to date
+  * Run `php composer.phar update` to ensure application dependencies are up to date
   * Visit `http://localhost` in a web browser
     
   
