@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<phpunit bootstrap="tests/bootstrap.php"
+         colors="true"
+         backupGlobals="false"
+         backupStaticAttributes="false">
+    <testsuites>
+        <testsuite name="unit">
+            <directory suffix="Test.php" phpVersion="7.3.*">tests/unit</directory>
+        </testsuite>
+    </testsuites>
+    <filter>
+        <whitelist>
+            <directory suffix=".php">private/app/src/</directory>
+        </whitelist>
+    </filter>
+    <logging>
+        <log type="coverage-html" target="tests/build/tests.html"/>
+        <log type="coverage-text" target="tests/build/coverage.txt"/>
+        <log type="coverage-clover" target="tests/build/logs/clover.xml"/>
+    </logging>
+</phpunit>

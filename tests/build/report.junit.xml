@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="/home/matt/Development/PlaceHolder-Bookings/tests/unit/private/app/src" tests="3" assertions="3" errors="0" warnings="0" failures="0" skipped="0" time="0.010492">
+    <testsuite name="PlaceHolder\RegistrationModelTest" file="/home/matt/Development/PlaceHolder-Bookings/tests/unit/private/app/src/RegistrationModelTest.php" tests="3" assertions="3" errors="0" warnings="0" failures="0" skipped="0" time="0.010492">
+      <testcase name="testValidCreateNewUser" class="PlaceHolder\RegistrationModelTest" classname="PlaceHolder.RegistrationModelTest" file="/home/matt/Development/PlaceHolder-Bookings/tests/unit/private/app/src/RegistrationModelTest.php" line="39" assertions="1" time="0.007055"/>
+      <testcase name="testValidDoesUserNameExist" class="PlaceHolder\RegistrationModelTest" classname="PlaceHolder.RegistrationModelTest" file="/home/matt/Development/PlaceHolder-Bookings/tests/unit/private/app/src/RegistrationModelTest.php" line="52" assertions="1" time="0.002083"/>
+      <testcase name="testValidDoesEmailExist" class="PlaceHolder\RegistrationModelTest" classname="PlaceHolder.RegistrationModelTest" file="/home/matt/Development/PlaceHolder-Bookings/tests/unit/private/app/src/RegistrationModelTest.php" line="62" assertions="1" time="0.001354"/>
+    </testsuite>
+  </testsuite>
+</testsuites>

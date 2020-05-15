@@ -1,0 +1,62 @@
+{% extends 'header.html.twig' %}
+
+{% block content %}
+
+    <main class="container text-center">
+
+        <div class="row">
+            <div class="col-lg">
+                <h1 class="display-5 mt-4">Hi, {{ first_name }}!</h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg">
+                <p>Welcome back. What would you like to do today?</p>
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <div class="row">
+            <div class="col-lg">
+               <h2>Recent Events</h2>
+
+                {% for event in recent_events %}
+
+                <div class="card border-secondary mb-3 mx-auto" style="max-width: 20rem;">
+                    <a href="../events/view/{{ event['EventID'] }}" style="text-decoration: none;">
+                        <div class="card-header">{{ event['EventName'] }}</div>
+                        <div class="card-body">
+                            <p class="card-title">{{ event['EventDescription'] }}</p>
+                        </div>
+                        <div class="card-footer text-muted">{{ event['TimeStart'] }} - {{ event['TimeEnd'] }}</div>
+                    </a>
+                </div>
+
+
+                {% endfor %}
+
+               <p><a class="btn btn-secondary" href="../events/view" role="button">See more &raquo;</a></p>
+            </div>
+
+            <div class="col-lg">
+                <h2>Profile Overview</h2>
+
+                <div class="card border-secondary mb-3 mx-auto" style="max-width: 20rem;">
+                        <div class="card-header">{{ full_name }}</div>
+                        <div class="card-body">
+                            <p class="card-title">{{ full_name }}</p>
+                        </div>
+                </div>
+
+                <p><a class="btn btn-secondary" href="../user/account" role="button">View details &raquo;</a></p>
+            </div>
+
+
+
+        </div>
+
+    </main>
+
+{% endblock %}

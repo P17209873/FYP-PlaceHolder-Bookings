@@ -1,0 +1,219 @@
+{% extends 'header.html.twig' %}
+
+{% block content %}
+
+    <div class="container">
+
+        <ul class="nav nav-tabs mt-2">
+            <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#user-details">User Details</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#current-bookings">Current Bookings</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#created-events">Created Events</a>
+            </li>
+
+            {% if adminuser %}
+                <li class="nav-item ml-auto">
+                    <a class="nav-link" data-toggle="tab" href="#database-events">Database Events</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#database-users">Database Users</a>
+                </li>
+
+            {% endif %}
+
+        </ul>
+
+
+
+        <div id="tab-content" class="tab-content mb-3">
+            <div class="tab-pane fade active show text-center" id="user-details">
+
+                <h3 class="mt-2">User Details</h3>
+                <div id="js-errors" class="text-center text-danger"></div>
+                <input type="button" class="btn btn-primary " id="show-hide-fieldset" value="Change Password">
+                <fieldset class="hidden" id="fieldset-update-details">
+                    <form>
+                        <div class="form-group row">
+                            <label for="current-password" class="col-sm-2 col-form-label text-right">Current Password:</label>
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control" id="current-password" placeholder="Current Password" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="new-password" class="col-sm-2 col-form-label text-right">New Password:</label>
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control" id="new-password" placeholder="New Password" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="new-password-repeat" class="col-sm-2 col-form-label text-right">New Password (Repeated):</label>
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control" id="new-password-repeat" placeholder="New Password (Repeated)" required>
+                            </div>
+                        </div>
+
+                        <input type="button" class="btn btn-primary" id="save-button" value="Update">
+                        <input type="button" class="btn btn-primary" id="cancel-button" value="Cancel">
+                    </form>
+                </fieldset>
+
+
+
+            </div>
+
+            <div class="tab-pane fade text-center" id="current-bookings">
+                <h3 class="mt-2">Current Bookings</h3>
+
+                {% if booked_events == false %}
+                <p> You are not booked onto any events! </p>
+                {% else %}
+
+                <table class="table table-hover text-center">
+                    <thead>
+                    <tr>
+                        <th scope="col">Event Name</th>
+                        <th scope="col">Event Description</th>
+                        <th scope="col">Event Start Time</th>
+                        <th scope="col">Event End Time</th>
+                        <th scope="col">Event Page</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    {% for event in booked_events %}
+                    <tr>
+                        <td>{{ event['EventName'] }}</td>
+                        <td>{{ event['EventDescription'] }}</td>
+                        <td>{{ event['TimeStart'] }}</td>
+                        <td>{{ event['TimeEnd'] }}</td>
+                        <td> <a href="../events/view/{{ event['EventID'] }}">Click here</a> </td>
+                    </tr>
+                    {% endfor %}
+
+                    </tbody>
+                </table>
+                {% endif %}
+            </div>
+            <div class="tab-pane fade text-center" id="created-events">
+                <h3 class="mt-2">Created Events</h3>
+
+                {% if created_events == false %}
+                    <p> You have not created any events! </p>
+                {% else %}
+
+                <table class="table table-hover text-center">
+                    <thead>
+                    <tr>
+                        <th scope="col">Event Name</th>
+                        <th scope="col">Event Description</th>
+                        <th scope="col">Event Start Time</th>
+                        <th scope="col">Event End Time</th>
+                        <th scope="col">Event Page</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    {% for event in created_events %}
+                        <tr>
+                            <td>{{ event['EventName'] }}</td>
+                            <td>{{ event['EventDescription'] }}</td>
+                            <td>{{ event['TimeStart'] }}</td>
+                            <td>{{ event['TimeEnd'] }}</td>
+                            <td> <a href="../events/view/{{ event['EventID'] }}">Click here</a> </td>
+                        </tr>
+                    {% endfor %}
+
+                    </tbody>
+                </table>
+                {% endif %}
+            </div>
+
+            {% if adminuser %}
+
+                <div class="tab-pane fade text-center" id="database-events">
+                    <h3 class="mt-2">Database Events</h3>
+
+                    <p>There are {{ event_count }} events in the database.</p>
+
+                    <table class="table table-hover text-center">
+                        <thead>
+                        <tr>
+                            <th scope="col">Event ID</th>
+                            <th scope="col">Event Name</th>
+                            <th scope="col">Event Description</th>
+                            <th scope="col">Event Start Time</th>
+                            <th scope="col">Event End Time</th>
+                            <th scope="col">Created By</th>
+                            <th scope="col">Event Page</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        {% for event in database_events %}
+
+                                <tr>
+                                    <td>{{ event['EventID'] }}</td>
+                                    <td>{{ event['EventName'] }}</td>
+                                    <td>{{ event['EventDescription'] }}</td>
+                                    <td>{{ event['TimeStart'] }}</td>
+                                    <td>{{ event['TimeEnd'] }}</td>
+                                    <td>{{ event['Username'] }}</td>
+                                    <td><a href="../events/view/{{ event['EventID'] }}">Click here</a></td>
+                                </tr>
+                        {% endfor %}
+
+                        </tbody>
+                    </table>
+
+                </div>
+
+                <div class="tab-pane fade text-center" id="database-users">
+                    <h3 class="mt-2">Database Users</h3>
+
+                    <p>There are {{ user_count }} users in the database.</p>
+
+                    <table class="table table-hover text-center">
+                        <thead>
+                        <tr>
+                            <th scope="col">User ID</th>
+                            <th scope="col">Username</th>
+                            <th scope="col">User Name</th>
+                            <th scope="col">User Email Address</th>
+                            <th scope="col">Creation Timestamp</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        {% for user in database_users %}
+                            <tr>
+                                <td>{{ user['UserID'] }}</td>
+                                <td>{{ user['Username'] }}</td>
+                                <td>{{ user['UserFirstName'] }} {{ user['UserLastName'] }}</td>
+                                <td>{{ user['UserEmail'] }}</td>
+                                <td>{{ user['UserCreationTimestamp'] }}</td>
+                            </tr>
+                        {% endfor %}
+
+                        </tbody>
+                    </table>
+
+                </div>
+
+            {% endif %}
+
+        </div>
+    </div>
+
+    <script type="module" src="{{ js_path }}"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+{% endblock %}

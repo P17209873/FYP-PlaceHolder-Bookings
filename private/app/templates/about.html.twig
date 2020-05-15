@@ -1,0 +1,38 @@
+{% extends 'header.html.twig' %}
+
+{% block content %}
+
+    <main class="container pt-5">
+        <h1 class="text-center">About</h1>
+        <div class="row mb-4">
+            <div class="col-sm-6 text-center">
+                <h3>Features</h3>
+                <p>PlaceHolder has a rich selection of features that can be freely used!</p>
+                <div class="card mx-auto mb-3" style="width:80%;">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Event creation, modification, and deletion</li>
+                        <li class="list-group-item">Registering as 'attending' events</li>
+                        <li class="list-group-item">Viewing events by location</li>
+                    </ul>
+                </div>
+
+                <p>Administrative users also have access to the following functionality.</p>
+                <div class="card mx-auto mb-3" style="width:80%;">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Location management, creation, modification, and deletion</li>
+                        <li class="list-group-item">Application settings modification</li>
+                        <li class="list-group-item">Application analytics</li>
+                    </ul>
+                </div>
+
+            </div>
+            <div class="col-sm-6 text-center">
+                <h3>Aims</h3>
+                <p>PlaceHolder aims to provide a system that allows you, the user, to take back control of your event
+                planning and management. To achieve this, we provide a modern, clean-looking system that does what it
+                says on the tin, without unnecessary bells and whistles. </p>
+            </div>
+        </div>
+    </main>
+
+{% endblock %}

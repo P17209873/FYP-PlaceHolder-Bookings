@@ -1,0 +1,18 @@
+
+
+Code Coverage Report:      
+  2020-02-22 13:00:39      
+                           
+ Summary:                  
+  Classes: 16.67% (1/6)    
+  Methods: 50.00% (12/24)  
+  Lines:   61.18% (104/170)
+
+\PlaceHolder::PlaceHolder\DatabaseWrapper
+  Methods:  55.56% ( 5/ 9)   Lines:  68.63% ( 35/ 51)
+\PlaceHolder::PlaceHolder\MonologWrapper
+  Methods:  50.00% ( 1/ 2)   Lines:  95.00% ( 19/ 20)
+\PlaceHolder::PlaceHolder\RegistrationModel
+  Methods:  50.00% ( 3/ 6)   Lines:  92.11% ( 35/ 38)
+\PlaceHolder::PlaceHolder\SQLQueries
+  Methods: 100.00% ( 3/ 3)   Lines: 100.00% ( 15/ 15)

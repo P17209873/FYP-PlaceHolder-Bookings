@@ -1,0 +1,70 @@
+{% extends 'header.html.twig' %}
+
+{% block content %}
+    <main class="container">
+
+        <fieldset class="text-center">
+            <h2 class="text-center mt-4">Register an Account</h2>
+
+            <div id="js-errors" class="text-center text-danger"></div>
+
+            <form id="registration-form">
+                <div class="form-group row">
+                    <label for="username" class="col-sm-2 col-form-label text-right">Username:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="username" placeholder="Enter Username" required>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="email" class="col-sm-2 col-form-label text-right">Email Address:</label>
+                    <div class="col-sm-10">
+                        <input type="email" class="form-control" id="email" placeholder="Enter Email Address" required>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="first-name" class="col-sm-2 col-form-label text-right">First Name:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="first-name" placeholder="Enter First Name" required>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="surname" class="col-sm-2 col-form-label text-right">Surname:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="surname" placeholder="Enter Surname" required>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="psw" class="col-sm-2 col-form-label text-right">Password:</label>
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control" id="psw" placeholder="Enter Password" required>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="psw-repeat" class="col-sm-2 col-form-label text-right">Repeat Password:</label>
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control" id="psw-repeat" placeholder="Repeat Password" required>
+                    </div>
+                </div>
+
+                <input type="button" class="btn btn-primary" id="register-button" value="Register">
+
+                <div class="signin mt-3">
+                    <p>Already have an account? <a href={{ login_path }}>Sign in</a>.</p>
+
+                </div>
+
+            </form>
+
+        </fieldset>
+
+
+
+    </main>
+
+    <script type="module" src="{{ js_path }}"></script>
+{% endblock %}

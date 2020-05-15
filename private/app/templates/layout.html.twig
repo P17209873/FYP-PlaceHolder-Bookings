@@ -1,0 +1,35 @@
+<!DOCTYPE html> 
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="author" content="Matthew Trim" />
+        <link rel="stylesheet" href="{{ css_path }}" type="text/css" />
+        {% block title %} {% endblock %}
+
+        <script type="text/javascript" src="https://cdn.weglot.com/weglot.min.js"></script>
+        <script>
+            Weglot.initialize({
+                api_key: 'wg_0bf0150dca889bc3abc4256c076603600'
+            });
+        </script>
+
+    </head>
+
+    <body class="pb-5">
+
+
+        {% block header %} {% endblock %}
+
+        <div class="alert alert-primary" role="alert">
+            Want to provide feedback? <a href="https://www.surveymonkey.co.uk/r/9VH6MPC" target="_blank" class="alert-link">Click here</a>!
+        </div>
+
+        {% block content %} {% endblock %}
+
+        <footer class="navbar navbar-dark justify-content-center bg-dark fixed-bottom">
+            <p class="nav-item text-light">Copyright &#169; 2020 PlaceHolder Bookings</p>
+        </footer>
+
+    </body>
+
+</html>

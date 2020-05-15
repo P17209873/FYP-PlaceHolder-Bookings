@@ -1,0 +1,109 @@
+{% extends 'header.html.twig' %}
+
+{% block content %}
+
+<main class="container text-center">
+
+    <div id="event-content">
+
+        <h2 id="event-title" class="mt-4">{{ event['EventName']}}</h2>
+
+        <div id="js-errors" class="text-center text-danger"></div>
+
+        <label>Created by: </label>
+        <p id="event-created-by">{{ event['Username'] }}</p>
+
+        <label>Category: </label>
+        <p id="event-type">{{ event['EventType'] }}</p>
+
+        <label>Description: </label>
+        <p id="event-description">{{ event['EventDescription'] }}</p>
+
+        <label>Start Time: </label>
+        <p id="event-start-time">{{ event['TimeStart'] }}</p>
+
+        <label>End Time: </label>
+        <p id="event-end-time">{{ event['TimeEnd'] }}</p>
+
+        <p>Event last updated: {{ event['TimeLastUpdated'] }}</p>
+
+        {% if user_result == true %}
+            <input type="button" class="btn btn-primary" id="amend-btn" value="Amend Event">
+            <input type="button" class="btn btn-primary" id="delete-btn" value="Delete Event">
+        {% else %}
+            {% if register_result == false %}
+                <input type="button" class="btn btn-primary" id="register-btn" value="Register!">
+            {% else %}
+                <input type="button" class="btn btn-primary" id="registered-btn" value="Registered!">
+            {% endif %}
+        {% endif %}
+
+    </div>
+
+    <div id="event-content-edit-hidden" class="hidden">
+
+        <h2 class="mt-4">Editing: {{ event['EventName']}}</h2>
+        <form id="edit-form">
+        <div class="form-group row">
+            <label for="event-title" class="col-sm-2 col-form-label text-right">Event Title:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="amend-event-title" value="{{ event['EventName'] }}">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="event-description" class="col-sm-2 col-form-label text-right">Event Description:</label>
+            <div class="col-sm-10">
+                <textarea class="form-control" rows="5" id="amend-event-description">{{ event['EventDescription'] }}</textarea>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="event-type" class="col-sm-2 col-form-label text-right">Event Type:</label>
+            <div class="col-sm-10">
+                <select id="types" class="form-control" data-role="select-dropdown">
+                    {% for type_name in types %}
+
+                        {% if type_name == event['EventType'] %}
+                            <option value="{{ type_name }}" selected="selected">{{ type_name }}</option>
+                        {% else %}
+                            <option value="{{ type_name }}">{{ type_name }}</option>
+                        {% endif %}
+
+
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+
+        <!-- datetime-local is not implemented in Firefox! -->
+        <p class="form-text">Old Event Start Time - {{ event['TimeStart'] }}</p>
+        <div class="form-group row">
+            <label for="amend-event-start-time" class="col-sm-2 col-form-label text-right">Event Start Time:</label>
+            <div class="col-sm-10">
+                <input type="datetime-local" class="form-control" id="amend-event-start-time" value="{{ event['TimeStart'] }}">
+            </div>
+        </div>
+
+
+        <p class="form-text">Old Event End Time - {{ event['TimeEnd'] }}</p>
+        <div class="form-group row">
+            <label for="amend-event-end-time" class="col-sm-2 col-form-label text-right">Event End Time:</label>
+
+            <div class="col-sm-10">
+                <input type="datetime-local" class="form-control" id="amend-event-end-time" value="{{ event['TimeEnd'] }}">
+            </div>
+        </div>
+
+        <input type="button" class="btn btn-primary" id="save-button" value="Save">
+        <input type="button" class="btn btn-primary" id="cancel-button" value="Cancel">
+        </form>
+    </div>
+
+</main>
+
+<script type="module" src="{{ js_path }}"></script>
+
+
+
+{% endblock %}

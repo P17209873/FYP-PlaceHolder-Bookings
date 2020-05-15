@@ -1,0 +1,31 @@
+{% extends 'header.html.twig' %}
+
+{% block content %}
+
+    <main>
+        <div class="jumbotron text-center">
+            <h1 class="display-4">Welcome to PlaceHolder!</h1>
+            <p class="lead">The one stop solution for your event management needs.</p>
+            <a class="btn btn-primary btn-md" href="{{ register_path }}" role="button">Register now!</a>
+        </div>
+
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-sm-6 text-center">
+                    <h3>Your Event</h3>
+                    <p>PlaceHolder offers an innovative, up to date system to manage yours or your organisations' events.
+                    We believe that systems like this should work for you, not the other way around! We want to provide a service
+                    that allows you to control your event, your way.</p>
+                </div>
+                <div class="col-sm-6 text-center">
+                    <h3>You're In Control</h3>
+                    <p>When we say you’re in charge, we mean it. PlaceHolder Bookings allows you to control how you create
+                        and market your event, and focuses on providing a service that allows you to get on with it, and
+                        then forget about it. Unless you want to modify it, once your event has been created, you can just
+                        sit back and relax while your attendees book their places. </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+{% endblock %}

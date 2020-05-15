@@ -1,0 +1,31 @@
+{% extends 'header.html.twig' %}
+
+{% block content %}
+    <main class="container text-center">
+
+        <h2 class="mt-4">Events</h2>
+
+        {% if events[0] is same as(true) %}
+            <h5 class="text-danger mt-3">There are no events at the moment!</h5>
+            <p>{{events[0]}}</p>
+        {% else %}
+
+        <div class="card-columns">
+            {% for event in events %}
+                <article class="card">
+                    <div class="card-body">
+                        <h5 class="card-title"> {{ event['EventName'] }}</h5>
+                        <p class="card-text">{{event['EventDescription']}}</p>
+                        <p>Created by: {{ event['Username'] }}</p>
+                        <p>Created on: {{ event['TimeCreated'] }}</p>
+                        <a href="/events/view/{{ event['EventID'] }}" class="btn btn-primary">View Details</a>
+                    </div>
+                </article>
+            {% endfor %}
+        </div>
+
+        {% endif %}
+
+    </main>
+
+{% endblock %}

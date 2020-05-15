@@ -1,0 +1,49 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %} 
+    <title> {{ page_title }} - PlaceHolder Bookings </title>
+{% endblock %}
+
+{% block header %}
+
+    {% if not loggedin %}
+    <header>
+        <nav class="navbar navbar-dark bg-dark">
+            <a class="navbar-brand" href="{{ home_path }}">PlaceHolder Bookings</a>
+
+            <div class="navbar-nav mr-auto navbar-expand-sm">
+                <a class="nav-item nav-link " href="{{ home_path }}">Home</a>
+                <a class="nav-item nav-link" href="{{ about_path }}">About PlaceHolder</a>
+                <a class="nav-item nav-link" href="{{ help_path }}">Help</a>
+            </div>
+
+            <div class="navbar-nav ml-auto navbar-expand-sm">
+                <a class="nav-item nav-link" href="{{ login_path }}">Login</a>
+                <a class="nav-item nav-link" href="{{ register_path }}">Register</a>
+            </div>
+
+        </nav>
+    </header>
+    {% endif %}
+
+    {% if loggedin %}
+        <header>
+            <nav class="navbar navbar-dark bg-dark">
+                <a class="navbar-brand" href="{{ home_path }}">PlaceHolder Bookings</a>
+
+                <div class="navbar-nav mr-auto navbar-expand-sm">
+                    <a class="nav-item nav-link " href="{{ home_path }}">Home</a>
+                    <a class="nav-item nav-link" href="{{ view_events_path }}">View Events</a>
+                    <a class="nav-item nav-link" href="{{ create_event_path }}">Create An Event</a>
+                </div>
+
+                <div class="navbar-nav ml-auto navbar-expand-sm">
+                    <a class="nav-item nav-link" href="{{ account_path }}">View Account</a>
+                    <a class="nav-item nav-link" href="{{ logout_path }}">Logout</a>
+                </div>
+
+            </nav>
+        </header>
+    {% endif %}
+
+{% endblock %}
