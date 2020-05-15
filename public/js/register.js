@@ -23,7 +23,7 @@ function registerUser() {
 
     if(result !== false) {
 
-        fetch('http://localhost/api/createnewuser', {//TODO: Update the input URL to allow for cross origin requests (on prod!)
+        fetch('http://localhost/api/createnewuser', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
